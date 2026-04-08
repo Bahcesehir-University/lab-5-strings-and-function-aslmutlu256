@@ -134,8 +134,8 @@ MyString MyString::toUpperCase() const {
     // Hint: Use std::transform with ::toupper
     // Do NOT modify the original object
  string result = data;
-    transform(result.begin(), result.end(), result.begin(),
-      [](unsigned char c ) {return toupper(c);});
+    transform(result.begin(), result.end(), result.begin(), [](unsigned 
+    char c ) {return toupper(c);});
     return MyString(result);
 }
 
@@ -157,7 +157,7 @@ MyString MyString::trim() const {
     size_t start= data.find_first_not_of(" \t\n\r");
     if(start== string::npos ) return MyString("");
     size_t end= data.find_last_not_of(" \t\n\r");
-   return MyString (data.substr(start,end-start-1));
+   return MyString (data.substr(start,end-start+1));
 }
 
 MyString MyString::reverse() const {
